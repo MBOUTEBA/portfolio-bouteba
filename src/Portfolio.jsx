@@ -1,4 +1,3 @@
-// src/Portfolio.jsx
 import React from "react";
 import Contact from "./components/Contact";
 
@@ -22,13 +21,17 @@ export default function Portfolio() {
         </div>
       </header>
 
-      <main>
+      <main className="pt-20">
         {/* Accueil */}
-        <section id="accueil" className="h-screen flex flex-col justify-center items-center text-center px-6 bg-gray-100">
+        <section
+          id="accueil"
+          className="h-screen flex flex-col justify-center items-center text-center px-6 bg-gray-100"
+        >
           <div className="bg-white/90 p-10 rounded-xl shadow-lg">
             <h1 className="text-5xl md:text-7xl font-serif">BOUTEBA Marwane</h1>
             <p className="mt-6 text-lg text-gray-700 max-w-2xl">
-              Étudiant en <strong>BTS SIO option SISR</strong>. Passionné par les systèmes, réseaux et la cybersécurité.
+              Étudiant en <strong>BTS SIO option SISR</strong>. Passionné par les
+              systèmes, réseaux et la cybersécurité.
             </p>
             <div className="mt-10 flex gap-4 justify-center">
               <a
@@ -94,9 +97,9 @@ export default function Portfolio() {
         <section id="parcours" className="h-screen flex flex-col justify-center items-center px-6 bg-gray-50">
           <h2 className="text-4xl font-semibold">Mon parcours scolaire</h2>
           <ul className="mt-6 space-y-4 text-center text-gray-700 max-w-xl">
-            <li>2018 – 2021 : Lycée Julie-Victoire Daubié, Argenteuil — Baccalauréat Général, spécialités Mathématiques, Physique-Chimie et SVT.</li>
-            <li>2021 – 2023 : CY Paris Cergy Université — Licence 1 en Économie et Gestion.</li>
-            <li>BTS SIO — option SISR (1ère année à Elysées Apprentissage, 2ème année à IAAG Paris 19ème).</li>
+            <li>2018 – 2021 : Lycée Julie-Victoire Daubié, Argenteuil — Baccalauréat Général, spécialités Mathématiques, Physique-Chimie et SVT (formation scientifique).</li>
+            <li>2021 – 2023 : CY Paris Cergy Université — Licence 1 en Économie et Gestion, bases solides en microéconomie, macroéconomie, comptabilité et mathématiques.</li>
+            <li>BTS SIO — option SISR (1ère année à Elysées Apprentissage, 2ème année à IAAG Paris 19ème)</li>
           </ul>
         </section>
 
@@ -118,23 +121,26 @@ export default function Portfolio() {
           <h2 className="text-4xl font-semibold">Projets</h2>
           <div className="mt-8 grid md:grid-cols-2 gap-8 max-w-6xl">
             <a
-              href="https://tonlien-projet1.com"
+              href="https://lien-vers-projet1.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="border rounded-lg overflow-hidden hover:shadow-lg transition"
+              className="block border rounded-lg overflow-hidden hover:shadow-lg transition"
             >
               <div className="p-6">
                 <h3 className="text-xl font-medium">Projet 1 - Infrastructure pour appart hôtel</h3>
                 <p className="mt-2 text-gray-600">
-                  Conception et mise en place d’une infrastructure réseau complète (Wi-Fi, VLANs, sécurité, serveurs) pour un appart hôtel afin de répondre aux besoins des clients et du personnel.
+                  Conception et mise en place d’une infrastructure réseau complète
+                  (Wi-Fi, VLANs, sécurité, serveurs) pour un appart hôtel afin de
+                  répondre aux besoins des clients et du personnel.
                 </p>
               </div>
             </a>
+
             <a
-              href="https://tonlien-projet2.com"
+              href="https://lien-vers-projet2.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="border rounded-lg overflow-hidden hover:shadow-lg transition"
+              className="block border rounded-lg overflow-hidden hover:shadow-lg transition"
             >
               <div className="p-6">
                 <h3 className="text-xl font-medium">Projet 2 - Virtualisation</h3>
@@ -153,13 +159,13 @@ export default function Portfolio() {
             <div>
               <h3 className="text-2xl font-medium">Cybersécurité</h3>
               <p className="mt-2 text-gray-600">
-                Veille sur les menaces en cybersécurité, ransomwares, phishing, avec outils comme <strong>Google Alertes</strong>, <strong>Cert-FR</strong> et <strong>ZATAZ</strong>.
+                J’effectue une veille régulière sur les menaces en cybersécurité afin de suivre l’évolution des risques comme les ransomwares et les attaques par phishing. Pour cela, j’utilise des outils tels que <strong>Google Alertes</strong>, <strong>Cert-FR</strong> et <strong>ZATAZ</strong>. Cette veille m’a permis de mieux comprendre les enjeux de sécurité pour les entreprises et l'importance des solutions comme le MFA et le chiffrement des données.
               </p>
             </div>
             <div>
               <h3 className="text-2xl font-medium">Virtualisation et Cloud</h3>
               <p className="mt-2 text-gray-600">
-                Suivi de VMware, Proxmox, Azure, AWS pour optimiser les infrastructures.
+                La virtualisation et le cloud computing sont essentiels pour optimiser les infrastructures. Je me tiens informé des dernières évolutions de VMware, Proxmox, Azure et AWS grâce à des outils comme <strong>Google Alertes</strong>, <strong>IT-Connect</strong> et des forums comme <strong>Reddit r/sysadmin</strong>.
               </p>
             </div>
           </div>
