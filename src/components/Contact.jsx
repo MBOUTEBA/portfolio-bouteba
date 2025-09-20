@@ -1,64 +1,90 @@
-import React, { useRef } from "react";
-import emailjs from "emailjs-com";
+import { useState } from "react";
+import emailjs from "@emailjs/browser";
 
-const Contact = () => {
-  const form = useRef();
+function Contact() {
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const [status, setStatus] = useState("");
+
+  const handleChange = (e) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
+  };
 
   const sendEmail = (e) => {
-    e.preventDefault();
+    e.preventDefault(); // empêche le rechargement de la page
+    setStatus("Envoi en cours...");
 
     emailjs
-      .sendForm(
-        "service_f98hegv",   // ✅ Ton Service ID
-        "template_xxxxxx",   // ⚠️ Remplace par ton Template ID (EmailJS)
-        form.current,
-        "YOUR_PUBLIC_KEY"    // ⚠️ Remplace par ton Public Key (EmailJS -> Account -> API Keys)
+      .send(
+        "service_f98hegv",      // ⚡ Ton Service ID
+        "template_xxxxxx",      // ⚡ Ton Template ID
+        {
+          from_name: form.name,
+          from_email: form.email,
+          message: form.message,
+        },
+        "YOUR_PUBLIC_KEY"       // ⚡ Ta clé publique (commence par "X-...")
       )
       .then(
-        (result) => {
-          console.log(result.text);
-          alert("Message envoyé avec succès ✅");
+        () => {
+          setStatus("Message envoyé avec succès ✅");
+          setForm({ name: "", email: "", message: "" });
         },
         (error) => {
-          console.log(error.text);
-          alert("Erreur ❌ Message non envoyé");
+          console.error(error);
+          setStatus("Erreur lors de l'envoi ❌");
         }
       );
   };
 
   return (
-    <section className="p-6 bg-gray-100 rounded-lg shadow-md">
+    <section id="contact" className="p-8 bg-gray-100">
       <h2 className="text-2xl font-bold mb-4">Contactez-moi</h2>
-      <form ref={form} onSubmit={sendEmail} className="flex flex-col space-y-4">
+      <form onSubmit={sendEmail} className="flex flex-col gap-4 max-w-md">
         <input
           type="text"
-          name="user_name"
+          name="name"
           placeholder="Votre nom"
+          value={form.name}
+          onChange={handleChange}
+          className="border p-2 rounded"
           required
-          className="p-2 border rounded"
         />
         <input
           type="email"
-          name="user_email"
+          name="email"
           placeholder="Votre email"
+          value={form.email}
+          onChange={handleChange}
+          className="border p-2 rounded"
           required
-          className="p-2 border rounded"
         />
         <textarea
           name="message"
           placeholder="Votre message"
+          value={form.message}
+          onChange={handleChange}
+          className="border p-2 rounded"
+          rows="5"
           required
-          className="p-2 border rounded h-32"
         />
         <button
           type="submit"
-          className="bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
+          className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
         >
           Envoyer
         </button>
       </form>
+      {status && <p className="mt-4">{status}</p>}
     </section>
   );
-};
+}
 
 export default Contact;
