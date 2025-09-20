@@ -1,6 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
+import emailjs from "@emailjs/browser";
 
 export default function Portfolio() {
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [status, setStatus] = useState("");
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+    setStatus("Envoi en cours...");
+
+    emailjs
+      .send(
+        "service_f98hegv",   // Ton Service ID
+        "template_nbhx0e9",  // Ton Template ID
+        {
+          name: form.name,      // correspond à {{name}} dans ton template
+          email: form.email,    // correspond à {{email}}
+          message: form.message // correspond à {{message}}
+        },
+        "Q9tajFGXWLxQWBCeS"    // Ta clé publique
+      )
+      .then(
+        () => {
+          setStatus("Message envoyé avec succès ✅");
+          setForm({ name: "", email: "", message: "" });
+        },
+        (error) => {
+          console.error("Erreur EmailJS :", error);
+          setStatus("Erreur lors de l'envoi ❌");
+        }
+      );
+  };
+
   return (
     <div className="min-h-screen font-sans text-gray-900 bg-white">
       {/* Header */}
@@ -22,27 +57,17 @@ export default function Portfolio() {
 
       <main>
         {/* Accueil */}
-        <section
-          id="accueil"
-          className="h-screen flex flex-col justify-center items-center text-center px-6 bg-gray-100"
-        >
+        <section id="accueil" className="h-screen flex flex-col justify-center items-center text-center px-6 bg-gray-100">
           <div className="bg-white/90 p-10 rounded-xl shadow-lg">
             <h1 className="text-5xl md:text-7xl font-serif">BOUTEBA Marwane</h1>
             <p className="mt-6 text-lg text-gray-700 max-w-2xl">
-              Étudiant en <strong>BTS SIO option SISR</strong>. Passionné par les
-              systèmes, réseaux et la cybersécurité.
+              Étudiant en <strong>BTS SIO option SISR</strong>. Passionné par les systèmes, réseaux et la cybersécurité.
             </p>
             <div className="mt-10 flex gap-4 justify-center">
-              <a
-                href="/docs/CV_Bouteba_Marwane.pdf"
-                className="px-6 py-3 border border-gray-900 hover:bg-gray-900 hover:text-white transition"
-              >
+              <a href="/docs/CV_Bouteba_Marwane.pdf" className="px-6 py-3 border border-gray-900 hover:bg-gray-900 hover:text-white transition">
                 Mon CV
               </a>
-              <a
-                href="/docs/Fiche_Synthese_Bouteba_Marwane.pdf"
-                className="px-6 py-3 border border-gray-900 hover:bg-gray-900 hover:text-white transition"
-              >
+              <a href="/docs/Fiche_Synthese_Bouteba_Marwane.pdf" className="px-6 py-3 border border-gray-900 hover:bg-gray-900 hover:text-white transition">
                 Fiche de synthèse
               </a>
             </div>
@@ -66,37 +91,22 @@ export default function Portfolio() {
           <h2 className="text-4xl font-semibold mb-6">Mon école</h2>
           <div className="flex flex-col md:flex-row items-center gap-8">
             <div className="flex flex-col items-center">
-              <img
-                src="/images/elysees-apprentissage-logo.png"
-                alt="Elysées Apprentissage"
-                className="mb-4 h-24"
-              />
+              <img src="/images/elysees-apprentissage-logo.png" alt="Elysées Apprentissage" className="mb-4 h-24" />
               <p className="text-center text-gray-600 max-w-xs">
-                1ère année de BTS SIO réalisée à <strong>Elysées Apprentissage</strong>.
-                Cette école m’a permis de découvrir le monde professionnel informatique et
-                de consolider mes bases en systèmes et réseaux.
+                1ère année de BTS SIO réalisée à <strong>Elysées Apprentissage</strong>. Cette école m’a permis de découvrir le monde professionnel informatique et de consolider mes bases en systèmes et réseaux.
               </p>
             </div>
             <div className="flex flex-col items-center">
-              <img
-                src="/images/iaag-logo.png"
-                alt="IAAG Paris 19ème"
-                className="mb-4 h-24"
-              />
+              <img src="/images/iaag-logo.png" alt="IAAG Paris 19ème" className="mb-4 h-24" />
               <p className="text-center text-gray-600 max-w-xs">
-                2ème année de BTS SIO à <strong>IAAG Paris 19ème</strong>.
-                Cette école m’a permis de renforcer mes compétences techniques, de travailler
-                sur des projets concrets et de me préparer à l’entrée dans le monde professionnel.
+                2ème année de BTS SIO à <strong>IAAG Paris 19ème</strong>. Cette école m’a permis de renforcer mes compétences techniques, de travailler sur des projets concrets et de me préparer à l’entrée dans le monde professionnel.
               </p>
             </div>
           </div>
         </section>
 
         {/* Parcours scolaire */}
-        <section
-          id="parcours"
-          className="h-screen flex flex-col justify-center items-center px-6 bg-gray-50"
-        >
+        <section id="parcours" className="h-screen flex flex-col justify-center items-center px-6 bg-gray-50">
           <h2 className="text-4xl font-semibold">Mon parcours scolaire</h2>
           <ul className="mt-6 space-y-4 text-center text-gray-700">
             <li>2018 – 2021 : Lycée Julie-Victoire Daubié, Argenteuil — Baccalauréat Général, spécialités Mathématiques, Physique-Chimie et SVT (formation scientifique).</li>
@@ -109,31 +119,19 @@ export default function Portfolio() {
         <section id="entreprise" className="h-screen flex flex-col justify-center items-center px-6">
           <h2 className="text-4xl font-semibold mb-6">Mon entreprise - Loadz</h2>
           <p className="mt-4 max-w-xl text-center text-gray-600">
-            Je travaille chez <strong>Loadz</strong>, une régie publicitaire qui
-            installe des bornes de recharge pour téléphones intégrant de la
-            publicité. L’entreprise a récemment ouvert un pôle informatique afin de
-            proposer des solutions technologiques aux restaurants, cafés et hôtels
-            partenaires. J’y participe à la mise en place et à la gestion des
-            infrastructures informatiques.
+            Je travaille chez <strong>Loadz</strong>, une régie publicitaire qui installe des bornes de recharge pour téléphones intégrant de la publicité.
           </p>
         </section>
 
         {/* Projets */}
-        <section
-          id="projets"
-          className="h-screen flex flex-col justify-center items-center px-6 bg-gray-50"
-        >
+        <section id="projets" className="h-screen flex flex-col justify-center items-center px-6 bg-gray-50">
           <h2 className="text-4xl font-semibold">Projets</h2>
           <div className="mt-8 grid md:grid-cols-2 gap-8 max-w-6xl">
             <div className="border rounded-lg overflow-hidden">
               <div className="p-6">
-                <h3 className="text-xl font-medium">
-                  Projet 1 - Infrastructure pour appart hôtel
-                </h3>
+                <h3 className="text-xl font-medium">Projet 1 - Infrastructure pour appart hôtel</h3>
                 <p className="mt-2 text-gray-600">
-                  Conception et mise en place d’une infrastructure réseau complète
-                  (Wi-Fi, VLANs, sécurité, serveurs) pour un appart hôtel afin de
-                  répondre aux besoins des clients et du personnel.
+                  Conception et mise en place d’une infrastructure réseau complète pour un appart hôtel.
                 </p>
               </div>
             </div>
@@ -155,13 +153,13 @@ export default function Portfolio() {
             <div>
               <h3 className="text-2xl font-medium">Cybersécurité</h3>
               <p className="mt-2 text-gray-600">
-                J’effectue une veille régulière sur les menaces en cybersécurité afin de suivre l’évolution des risques comme les ransomwares et les attaques par phishing. Pour cela, j’utilise des outils tels que <strong>Google Alertes</strong>, <strong>Cert-FR</strong> et <strong>ZATAZ</strong>. Cette veille m’a permis de mieux comprendre les enjeux de sécurité pour les entreprises et l'importance des solutions comme le MFA et le chiffrement des données.
+                Veille sur les menaces en cybersécurité comme les ransomwares et attaques par phishing.
               </p>
             </div>
             <div>
               <h3 className="text-2xl font-medium">Virtualisation et Cloud</h3>
               <p className="mt-2 text-gray-600">
-                La virtualisation et le cloud computing sont essentiels pour optimiser les infrastructures. Je me tiens informé des dernières évolutions de VMware, Proxmox, Azure et AWS grâce à des outils comme <strong>Google Alertes</strong>, <strong>IT-Connect</strong> et des forums comme <strong>Reddit r/sysadmin</strong>.
+                Suivi des dernières évolutions de VMware, Proxmox, Azure et AWS.
               </p>
             </div>
           </div>
@@ -170,19 +168,37 @@ export default function Portfolio() {
         {/* Contact */}
         <section id="contact" className="h-screen flex flex-col justify-center items-center px-6 bg-gray-50">
           <h2 className="text-4xl font-semibold">Contact</h2>
-          <form className="mt-6 w-full max-w-md space-y-4">
-            <input className="w-full p-3 border rounded" placeholder="Nom" />
-            <input className="w-full p-3 border rounded" placeholder="Email" />
+          <form onSubmit={sendEmail} className="mt-6 w-full max-w-md space-y-4">
+            <input
+              type="text"
+              name="name"
+              value={form.name}
+              onChange={handleChange}
+              placeholder="Nom"
+              className="w-full p-3 border rounded"
+              required
+            />
+            <input
+              type="email"
+              name="email"
+              value={form.email}
+              onChange={handleChange}
+              placeholder="Email"
+              className="w-full p-3 border rounded"
+              required
+            />
             <textarea
-              className="w-full p-3 border rounded h-32"
+              name="message"
+              value={form.message}
+              onChange={handleChange}
               placeholder="Message"
+              className="w-full p-3 border rounded h-32"
+              required
             ></textarea>
-            <button
-              type="submit"
-              className="px-6 py-3 bg-gray-900 text-white rounded w-full"
-            >
+            <button type="submit" className="px-6 py-3 bg-gray-900 text-white rounded w-full">
               Envoyer
             </button>
+            {status && <p style={{ color: status.includes("✅") ? "green" : "red" }}>{status}</p>}
           </form>
         </section>
       </main>
