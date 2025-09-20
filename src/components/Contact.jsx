@@ -20,7 +20,8 @@ function Contact() {
         "service_f98hegv",   // Ton Service ID
         "template_nbhx0e9",  // Ton Template ID
         {
-          form_name: form.name,      // correspond à {{name}} dans ton template
+          from_name: form.name, // correspond à {{from_name}}
+          name: form.name,      // correspond à {{name}} si tu veux l’utiliser
           email: form.email,    // correspond à {{email}}
           message: form.message // correspond à {{message}}
         },
