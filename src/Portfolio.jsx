@@ -26,7 +26,8 @@ export default function Portfolio() {
           <div className="bg-white/90 p-10 rounded-xl shadow-lg">
             <h1 className="text-5xl md:text-7xl font-serif">BOUTEBA Marwane</h1>
             <p className="mt-6 text-lg text-gray-700 max-w-2xl">
-              Étudiant en <strong>BTS SIO option SISR</strong>. Passionné par les systèmes, réseaux et la cybersécurité.
+              Étudiant en <strong>BTS SIO option SISR</strong>. Passionné par les
+              systèmes, réseaux et la cybersécurité.
             </p>
             <div className="mt-10 flex gap-4 justify-center">
               <a href="/docs/CV_Bouteba_Marwane.pdf" className="px-6 py-3 border border-gray-900 hover:bg-gray-900 hover:text-white transition">Mon CV</a>
@@ -41,6 +42,9 @@ export default function Portfolio() {
           <p className="mt-4 max-w-xl text-center text-gray-600">
             Je prépare un <strong>BTS Services Informatiques aux Organisations</strong>,
             option <strong>SISR (Solutions d’Infrastructure, Systèmes et Réseaux)</strong>.
+            Cette formation me permet d'acquérir des compétences pratiques en administration
+            réseau, virtualisation, sécurité et gestion d'infrastructures informatiques,
+            tout en développant une approche professionnelle adaptée aux entreprises.
           </p>
         </section>
 
@@ -52,12 +56,16 @@ export default function Portfolio() {
               <img src="/images/elysees-apprentissage-logo.png" alt="Elysées Apprentissage" className="mb-4 h-24" />
               <p className="text-center text-gray-600 max-w-xs">
                 1ère année de BTS SIO réalisée à <strong>Elysées Apprentissage</strong>.
+                Cette école m’a permis de découvrir le monde professionnel informatique et
+                de consolider mes bases en systèmes et réseaux.
               </p>
             </div>
             <div className="flex flex-col items-center">
               <img src="/images/iaag-logo.png" alt="IAAG Paris 19ème" className="mb-4 h-24" />
               <p className="text-center text-gray-600 max-w-xs">
                 2ème année de BTS SIO à <strong>IAAG Paris 19ème</strong>.
+                Cette école m’a permis de renforcer mes compétences techniques, de travailler
+                sur des projets concrets et de me préparer à l’entrée dans le monde professionnel.
               </p>
             </div>
           </div>
@@ -67,8 +75,8 @@ export default function Portfolio() {
         <section id="parcours" className="h-screen flex flex-col justify-center items-center px-6 bg-gray-50">
           <h2 className="text-4xl font-semibold">Mon parcours scolaire</h2>
           <ul className="mt-6 space-y-4 text-center text-gray-700">
-            <li>2018 – 2021 : Lycée Julie-Victoire Daubié, Argenteuil — Baccalauréat Général</li>
-            <li>2021 – 2023 : CY Paris Cergy Université — Licence 1 en Économie et Gestion</li>
+            <li>2018 – 2021 : Lycée Julie-Victoire Daubié, Argenteuil — Baccalauréat Général, spécialités Mathématiques, Physique-Chimie et SVT (formation scientifique).</li>
+            <li>2021 – 2023 : CY Paris Cergy Université — Licence 1 en Économie et Gestion, bases solides en microéconomie, macroéconomie, comptabilité et mathématiques.</li>
             <li>BTS SIO — option SISR (1ère année à Elysées Apprentissage, 2ème année à IAAG Paris 19ème)</li>
           </ul>
         </section>
@@ -77,7 +85,12 @@ export default function Portfolio() {
         <section id="entreprise" className="h-screen flex flex-col justify-center items-center px-6">
           <h2 className="text-4xl font-semibold mb-6">Mon entreprise - Loadz</h2>
           <p className="mt-4 max-w-xl text-center text-gray-600">
-            Je travaille chez <strong>Loadz</strong>, une régie publicitaire...
+            Je travaille chez <strong>Loadz</strong>, une régie publicitaire qui
+            installe des bornes de recharge pour téléphones intégrant de la
+            publicité. L’entreprise a récemment ouvert un pôle informatique afin de
+            proposer des solutions technologiques aux restaurants, cafés et hôtels
+            partenaires. J’y participe à la mise en place et à la gestion des
+            infrastructures informatiques.
           </p>
         </section>
 
@@ -90,9 +103,13 @@ export default function Portfolio() {
             <a href="https://url-de-ton-projet1.com" target="_blank" rel="noopener noreferrer">
               <div className="border rounded-lg overflow-hidden hover:shadow-lg transition">
                 <div className="p-6">
-                  <h3 className="text-xl font-medium">Projet 1 - Infrastructure pour appart hôtel</h3>
+                  <h3 className="text-xl font-medium">
+                    Projet 1 - Infrastructure pour appart hôtel
+                  </h3>
                   <p className="mt-2 text-gray-600">
-                    Conception et mise en place d’une infrastructure réseau complète...
+                    Conception et mise en place d’une infrastructure réseau complète
+                    (Wi-Fi, VLANs, sécurité, serveurs) pour un appart hôtel afin de
+                    répondre aux besoins des clients et du personnel.
                   </p>
                 </div>
               </div>
@@ -104,7 +121,7 @@ export default function Portfolio() {
                 <div className="p-6">
                   <h3 className="text-xl font-medium">Projet 2 - Virtualisation</h3>
                   <p className="mt-2 text-gray-600">
-                    Création et gestion d’un environnement virtualisé...
+                    Création et gestion d’un environnement virtualisé avec VMware/Hyper-V pour la mise en place de serveurs.
                   </p>
                 </div>
               </div>
@@ -120,13 +137,13 @@ export default function Portfolio() {
             <div>
               <h3 className="text-2xl font-medium">Cybersécurité</h3>
               <p className="mt-2 text-gray-600">
-                Veille régulière sur les menaces en cybersécurité...
+                J’effectue une veille régulière sur les menaces en cybersécurité afin de suivre l’évolution des risques comme les ransomwares et les attaques par phishing. Pour cela, j’utilise des outils tels que <strong>Google Alertes</strong>, <strong>Cert-FR</strong> et <strong>ZATAZ</strong>. Cette veille m’a permis de mieux comprendre les enjeux de sécurité pour les entreprises et l'importance des solutions comme le MFA et le chiffrement des données.
               </p>
             </div>
             <div>
               <h3 className="text-2xl font-medium">Virtualisation et Cloud</h3>
               <p className="mt-2 text-gray-600">
-                Suivi des dernières évolutions VMware, Proxmox, Azure et AWS...
+                La virtualisation et le cloud computing sont essentiels pour optimiser les infrastructures. Je me tiens informé des dernières évolutions de VMware, Proxmox, Azure et AWS grâce à des outils comme <strong>Google Alertes</strong>, <strong>IT-Connect</strong> et des forums comme <strong>Reddit r/sysadmin</strong>.
               </p>
             </div>
           </div>
@@ -135,7 +152,7 @@ export default function Portfolio() {
         {/* Contact */}
         <section id="contact" className="h-screen flex flex-col justify-center items-center px-6 bg-gray-50">
           <h2 className="text-4xl font-semibold">Contact</h2>
-          {/* Ton Contact.jsx peut être intégré ici ou utilisé comme composant */}
+          {/* Ici tu peux intégrer ton composant Contact.jsx */}
         </section>
       </main>
 
