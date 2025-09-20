@@ -1,6 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
+import emailjs from "@emailjs/browser";
 
 export default function Portfolio() {
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [status, setStatus] = useState("");
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+    setStatus("Envoi en cours...");
+
+    emailjs
+      .send(
+        "service_f98hegv",   // Ton Service ID
+        "template_nbhx0e9",  // Ton Template ID
+        {
+          name: form.name,      // correspond à {{name}} dans ton template
+          email: form.email,    // correspond à {{email}}
+          message: form.message // correspond à {{message}}
+        },
+        "Q9tajFGXWLxQWBCeS"    // Ta clé publique
+      )
+      .then(
+        () => {
+          setStatus("Message envoyé avec succès ✅");
+          setForm({ name: "", email: "", message: "" });
+        },
+        (error) => {
+          console.error("Erreur EmailJS :", error);
+          setStatus("Erreur lors de l'envoi ❌");
+        }
+      );
+  };
+
   return (
     <div className="min-h-screen font-sans text-gray-900 bg-white">
       {/* Header */}
@@ -26,8 +61,7 @@ export default function Portfolio() {
           <div className="bg-white/90 p-10 rounded-xl shadow-lg">
             <h1 className="text-5xl md:text-7xl font-serif">BOUTEBA Marwane</h1>
             <p className="mt-6 text-lg text-gray-700 max-w-2xl">
-              Étudiant en <strong>BTS SIO option SISR</strong>. Passionné par les
-              systèmes, réseaux et la cybersécurité.
+              Étudiant en <strong>BTS SIO option SISR</strong>. Passionné par les systèmes, réseaux et la cybersécurité.
             </p>
             <div className="mt-10 flex gap-4 justify-center">
               <a href="/docs/CV_Bouteba_Marwane.pdf" className="px-6 py-3 border border-gray-900 hover:bg-gray-900 hover:text-white transition">Mon CV</a>
@@ -98,7 +132,6 @@ export default function Portfolio() {
         <section id="projets" className="h-screen flex flex-col justify-center items-center px-6 bg-gray-50">
           <h2 className="text-4xl font-semibold mb-6">Projets</h2>
           <div className="mt-8 grid md:grid-cols-2 gap-8 max-w-6xl">
-
             {/* Projet 1 */}
             <a href="https://url-de-ton-projet1.com" target="_blank" rel="noopener noreferrer">
               <div className="border rounded-lg overflow-hidden hover:shadow-lg transition">
@@ -126,7 +159,6 @@ export default function Portfolio() {
                 </div>
               </div>
             </a>
-
           </div>
         </section>
 
@@ -152,7 +184,36 @@ export default function Portfolio() {
         {/* Contact */}
         <section id="contact" className="h-screen flex flex-col justify-center items-center px-6 bg-gray-50">
           <h2 className="text-4xl font-semibold">Contact</h2>
-          {/* Ici tu peux intégrer ton composant Contact.jsx */}
+          <form onSubmit={sendEmail} className="mt-6 w-full max-w-md space-y-4">
+            <input
+              type="text"
+              name="name"
+              placeholder="Nom"
+              value={form.name}
+              onChange={handleChange}
+              className="w-full p-3 border rounded"
+              required
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              value={form.email}
+              onChange={handleChange}
+              className="w-full p-3 border rounded"
+              required
+            />
+            <textarea
+              name="message"
+              placeholder="Message"
+              value={form.message}
+              onChange={handleChange}
+              className="w-full p-3 border rounded h-32"
+              required
+            />
+            <button type="submit" className="px-6 py-3 bg-gray-900 text-white rounded w-full">Envoyer</button>
+          </form>
+          {status && <p className={`mt-2 ${status.includes("✅") ? "text-green-600" : "text-red-600"}`}>{status}</p>}
         </section>
       </main>
 
