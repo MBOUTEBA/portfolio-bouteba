@@ -20,10 +20,9 @@ function Contact() {
         "service_f98hegv",   // Ton Service ID
         "template_nbhx0e9",  // Ton Template ID
         {
-          from_name: form.name, // correspond à {{from_name}}
-          name: form.name,      // correspond à {{name}} si tu veux l’utiliser
-          email: form.email,    // correspond à {{email}}
-          message: form.message // correspond à {{message}}
+          from_name: form.name,   // correspond à {{from_name}} dans le template
+          email: form.email,      // correspond à {{email}} dans le template
+          message: form.message,  // correspond à {{message}} dans le template
         },
         "Q9tajFGXWLxQWBCeS"    // Ta clé publique
       )
