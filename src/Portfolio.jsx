@@ -116,13 +116,13 @@ export default function Portfolio() {
   </p>
 
   {/* Image cliquable */}
-  <a href="https://lien-vers-ta-page.com" target="_blank" rel="noopener noreferrer">
-    <img
-      src="/images/Borne + téléphone.png"
-      alt="Borne + téléphone"
-      className="mt-6 w-64 h-auto rounded-lg shadow-lg hover:scale-105 transition-transform"
-    />
-  </a>
+  <a href="https://ton-lien-destination.com" target="_blank" rel="noopener noreferrer">
+  <img
+    src="/images/Borne-telephone.png"
+    alt="Borne + téléphone"
+    className="mt-4 w-48 h-auto cursor-pointer"
+  />
+</a>
 </section>
 
         {/* Projets */}
