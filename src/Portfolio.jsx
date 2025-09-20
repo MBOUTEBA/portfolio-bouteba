@@ -1,41 +1,8 @@
-import React, { useState } from "react";
-import emailjs from "@emailjs/browser";
+// src/Portfolio.jsx
+import React from "react";
+import Contact from "./components/Contact";
 
 export default function Portfolio() {
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
-  const [status, setStatus] = useState("");
-
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-
-  const sendEmail = (e) => {
-    e.preventDefault();
-    setStatus("Envoi en cours...");
-
-    emailjs
-      .send(
-        "service_f98hegv",   // Ton Service ID
-        "template_nbhx0e9",  // Ton Template ID
-        {
-          name: form.name,      // correspond à {{name}} dans ton template
-          email: form.email,    // correspond à {{email}}
-          message: form.message // correspond à {{message}}
-        },
-        "Q9tajFGXWLxQWBCeS"    // Ta clé publique
-      )
-      .then(
-        () => {
-          setStatus("Message envoyé avec succès ✅");
-          setForm({ name: "", email: "", message: "" });
-        },
-        (error) => {
-          console.error("Erreur EmailJS :", error);
-          setStatus("Erreur lors de l'envoi ❌");
-        }
-      );
-  };
-
   return (
     <div className="min-h-screen font-sans text-gray-900 bg-white">
       {/* Header */}
@@ -64,8 +31,18 @@ export default function Portfolio() {
               Étudiant en <strong>BTS SIO option SISR</strong>. Passionné par les systèmes, réseaux et la cybersécurité.
             </p>
             <div className="mt-10 flex gap-4 justify-center">
-              <a href="/docs/CV_Bouteba_Marwane.pdf" className="px-6 py-3 border border-gray-900 hover:bg-gray-900 hover:text-white transition">Mon CV</a>
-              <a href="/docs/Fiche_Synthese_Bouteba_Marwane.pdf" className="px-6 py-3 border border-gray-900 hover:bg-gray-900 hover:text-white transition">Fiche de synthèse</a>
+              <a
+                href="/docs/CV_Bouteba_Marwane.pdf"
+                className="px-6 py-3 border border-gray-900 hover:bg-gray-900 hover:text-white transition"
+              >
+                Mon CV
+              </a>
+              <a
+                href="/docs/Fiche_Synthese_Bouteba_Marwane.pdf"
+                className="px-6 py-3 border border-gray-900 hover:bg-gray-900 hover:text-white transition"
+              >
+                Fiche de synthèse
+              </a>
             </div>
           </div>
         </section>
@@ -87,7 +64,11 @@ export default function Portfolio() {
           <h2 className="text-4xl font-semibold mb-6">Mon école</h2>
           <div className="flex flex-col md:flex-row items-center gap-8">
             <div className="flex flex-col items-center">
-              <img src="/images/elysees-apprentissage-logo.png" alt="Elysées Apprentissage" className="mb-4 h-24" />
+              <img
+                src="/images/elysees-apprentissage-logo.png"
+                alt="Elysées Apprentissage"
+                className="mb-4 h-24"
+              />
               <p className="text-center text-gray-600 max-w-xs">
                 1ère année de BTS SIO réalisée à <strong>Elysées Apprentissage</strong>.
                 Cette école m’a permis de découvrir le monde professionnel informatique et
@@ -95,7 +76,11 @@ export default function Portfolio() {
               </p>
             </div>
             <div className="flex flex-col items-center">
-              <img src="/images/iaag-logo.png" alt="IAAG Paris 19ème" className="mb-4 h-24" />
+              <img
+                src="/images/iaag-logo.png"
+                alt="IAAG Paris 19ème"
+                className="mb-4 h-24"
+              />
               <p className="text-center text-gray-600 max-w-xs">
                 2ème année de BTS SIO à <strong>IAAG Paris 19ème</strong>.
                 Cette école m’a permis de renforcer mes compétences techniques, de travailler
@@ -108,10 +93,10 @@ export default function Portfolio() {
         {/* Parcours scolaire */}
         <section id="parcours" className="h-screen flex flex-col justify-center items-center px-6 bg-gray-50">
           <h2 className="text-4xl font-semibold">Mon parcours scolaire</h2>
-          <ul className="mt-6 space-y-4 text-center text-gray-700">
-            <li>2018 – 2021 : Lycée Julie-Victoire Daubié, Argenteuil — Baccalauréat Général, spécialités Mathématiques, Physique-Chimie et SVT (formation scientifique).</li>
-            <li>2021 – 2023 : CY Paris Cergy Université — Licence 1 en Économie et Gestion, bases solides en microéconomie, macroéconomie, comptabilité et mathématiques.</li>
-            <li>BTS SIO — option SISR (1ère année à Elysées Apprentissage, 2ème année à IAAG Paris 19ème)</li>
+          <ul className="mt-6 space-y-4 text-center text-gray-700 max-w-xl">
+            <li>2018 – 2021 : Lycée Julie-Victoire Daubié, Argenteuil — Baccalauréat Général, spécialités Mathématiques, Physique-Chimie et SVT.</li>
+            <li>2021 – 2023 : CY Paris Cergy Université — Licence 1 en Économie et Gestion.</li>
+            <li>BTS SIO — option SISR (1ère année à Elysées Apprentissage, 2ème année à IAAG Paris 19ème).</li>
           </ul>
         </section>
 
@@ -130,33 +115,32 @@ export default function Portfolio() {
 
         {/* Projets */}
         <section id="projets" className="h-screen flex flex-col justify-center items-center px-6 bg-gray-50">
-          <h2 className="text-4xl font-semibold mb-6">Projets</h2>
+          <h2 className="text-4xl font-semibold">Projets</h2>
           <div className="mt-8 grid md:grid-cols-2 gap-8 max-w-6xl">
-            {/* Projet 1 */}
-            <a href="https://url-de-ton-projet1.com" target="_blank" rel="noopener noreferrer">
-              <div className="border rounded-lg overflow-hidden hover:shadow-lg transition">
-                <div className="p-6">
-                  <h3 className="text-xl font-medium">
-                    Projet 1 - Infrastructure pour appart hôtel
-                  </h3>
-                  <p className="mt-2 text-gray-600">
-                    Conception et mise en place d’une infrastructure réseau complète
-                    (Wi-Fi, VLANs, sécurité, serveurs) pour un appart hôtel afin de
-                    répondre aux besoins des clients et du personnel.
-                  </p>
-                </div>
+            <a
+              href="https://tonlien-projet1.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="border rounded-lg overflow-hidden hover:shadow-lg transition"
+            >
+              <div className="p-6">
+                <h3 className="text-xl font-medium">Projet 1 - Infrastructure pour appart hôtel</h3>
+                <p className="mt-2 text-gray-600">
+                  Conception et mise en place d’une infrastructure réseau complète (Wi-Fi, VLANs, sécurité, serveurs) pour un appart hôtel afin de répondre aux besoins des clients et du personnel.
+                </p>
               </div>
             </a>
-
-            {/* Projet 2 */}
-            <a href="https://url-de-ton-projet2.com" target="_blank" rel="noopener noreferrer">
-              <div className="border rounded-lg overflow-hidden hover:shadow-lg transition">
-                <div className="p-6">
-                  <h3 className="text-xl font-medium">Projet 2 - Virtualisation</h3>
-                  <p className="mt-2 text-gray-600">
-                    Création et gestion d’un environnement virtualisé avec VMware/Hyper-V pour la mise en place de serveurs.
-                  </p>
-                </div>
+            <a
+              href="https://tonlien-projet2.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="border rounded-lg overflow-hidden hover:shadow-lg transition"
+            >
+              <div className="p-6">
+                <h3 className="text-xl font-medium">Projet 2 - Virtualisation</h3>
+                <p className="mt-2 text-gray-600">
+                  Création et gestion d’un environnement virtualisé avec VMware/Hyper-V pour la mise en place de serveurs.
+                </p>
               </div>
             </a>
           </div>
@@ -169,52 +153,20 @@ export default function Portfolio() {
             <div>
               <h3 className="text-2xl font-medium">Cybersécurité</h3>
               <p className="mt-2 text-gray-600">
-                J’effectue une veille régulière sur les menaces en cybersécurité afin de suivre l’évolution des risques comme les ransomwares et les attaques par phishing. Pour cela, j’utilise des outils tels que <strong>Google Alertes</strong>, <strong>Cert-FR</strong> et <strong>ZATAZ</strong>. Cette veille m’a permis de mieux comprendre les enjeux de sécurité pour les entreprises et l'importance des solutions comme le MFA et le chiffrement des données.
+                Veille sur les menaces en cybersécurité, ransomwares, phishing, avec outils comme <strong>Google Alertes</strong>, <strong>Cert-FR</strong> et <strong>ZATAZ</strong>.
               </p>
             </div>
             <div>
               <h3 className="text-2xl font-medium">Virtualisation et Cloud</h3>
               <p className="mt-2 text-gray-600">
-                La virtualisation et le cloud computing sont essentiels pour optimiser les infrastructures. Je me tiens informé des dernières évolutions de VMware, Proxmox, Azure et AWS grâce à des outils comme <strong>Google Alertes</strong>, <strong>IT-Connect</strong> et des forums comme <strong>Reddit r/sysadmin</strong>.
+                Suivi de VMware, Proxmox, Azure, AWS pour optimiser les infrastructures.
               </p>
             </div>
           </div>
         </section>
 
         {/* Contact */}
-        <section id="contact" className="h-screen flex flex-col justify-center items-center px-6 bg-gray-50">
-          <h2 className="text-4xl font-semibold">Contact</h2>
-          <form onSubmit={sendEmail} className="mt-6 w-full max-w-md space-y-4">
-            <input
-              type="text"
-              name="name"
-              placeholder="Nom"
-              value={form.name}
-              onChange={handleChange}
-              className="w-full p-3 border rounded"
-              required
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder="Email"
-              value={form.email}
-              onChange={handleChange}
-              className="w-full p-3 border rounded"
-              required
-            />
-            <textarea
-              name="message"
-              placeholder="Message"
-              value={form.message}
-              onChange={handleChange}
-              className="w-full p-3 border rounded h-32"
-              required
-            />
-            <button type="submit" className="px-6 py-3 bg-gray-900 text-white rounded w-full">Envoyer</button>
-          </form>
-          {status && <p className={`mt-2 ${status.includes("✅") ? "text-green-600" : "text-red-600"}`}>{status}</p>}
-        </section>
+        <Contact />
       </main>
 
       <footer className="py-6 text-center text-sm text-gray-500 border-t border-gray-200">
