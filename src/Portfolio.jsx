@@ -104,17 +104,26 @@ export default function Portfolio() {
         </section>
 
         {/* Mon entreprise */}
-        <section id="entreprise" className="h-screen flex flex-col justify-center items-center px-6">
-          <h2 className="text-4xl font-semibold mb-6">Mon entreprise - Loadz</h2>
-          <p className="mt-4 max-w-xl text-center text-gray-600">
-            Je travaille chez <strong>Loadz</strong>, une régie publicitaire qui
-            installe des bornes de recharge pour téléphones intégrant de la
-            publicité. L’entreprise a récemment ouvert un pôle informatique afin de
-            proposer des solutions technologiques aux restaurants, cafés et hôtels
-            partenaires. J’y participe à la mise en place et à la gestion des
-            infrastructures informatiques.
-          </p>
-        </section>
+<section id="entreprise" className="h-screen flex flex-col justify-center items-center px-6">
+  <h2 className="text-4xl font-semibold mb-6">Mon entreprise - Loadz</h2>
+  <p className="mt-4 max-w-xl text-center text-gray-600">
+    Je travaille chez <strong>Loadz</strong>, une régie publicitaire qui
+    installe des bornes de recharge pour téléphones intégrant de la
+    publicité. L’entreprise a récemment ouvert un pôle informatique afin de
+    proposer des solutions technologiques aux restaurants, cafés et hôtels
+    partenaires. J’y participe à la mise en place et à la gestion des
+    infrastructures informatiques.
+  </p>
+
+  {/* Image cliquable */}
+  <a href="https://lien-vers-ta-page.com" target="_blank" rel="noopener noreferrer">
+    <img
+      src="/images/Borne + téléphone.png"
+      alt="Borne + téléphone"
+      className="mt-6 w-64 h-auto rounded-lg shadow-lg hover:scale-105 transition-transform"
+    />
+  </a>
+</section>
 
         {/* Projets */}
         <section id="projets" className="h-screen flex flex-col justify-center items-center px-6 bg-gray-50">
