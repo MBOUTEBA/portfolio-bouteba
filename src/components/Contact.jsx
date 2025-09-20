@@ -24,13 +24,13 @@ function Contact() {
     emailjs
       .send(
         "service_f98hegv",      // ⚡ Ton Service ID
-        "template_xxxxxx",      // ⚡ Ton Template ID
+        "template_nbhx0e9",      // ⚡ Ton Template ID
         {
           from_name: form.name,
           from_email: form.email,
           message: form.message,
         },
-        "YOUR_PUBLIC_KEY"       // ⚡ Ta clé publique (commence par "X-...")
+        "Q9tajFGXWLxQWBCeS"       // ⚡ Ta clé publique (commence par "X-...")
       )
       .then(
         () => {
