@@ -18,19 +18,19 @@ function Contact() {
   };
 
   const sendEmail = (e) => {
-    e.preventDefault(); // empêche le rechargement de la page
+    e.preventDefault();
     setStatus("Envoi en cours...");
 
     emailjs
       .send(
-        "service_f98hegv",      // ⚡ Ton Service ID
-        "template_nbhx0e9",      // ⚡ Ton Template ID
+        "service_f98hegv",   // ⚡ Ton Service ID EmailJS
+        "template_nbhx0e9",  // ⚡ Ton Template ID
         {
-          from_name: form.name,
-          from_email: form.email,
-          message: form.message,
+          from_name: form.name,  // correspond à {{from_name}} dans EmailJS
+          email: form.email,     // correspond à {{email}} dans EmailJS
+          message: form.message, // correspond à {{message}} dans EmailJS
         },
-        "Q9tajFGXWLxQWBCeS"       // ⚡ Ta clé publique (commence par "X-...")
+        "Q9tajFGXWLxQWBCeS"     // ⚡ Ta clé publique EmailJS
       )
       .then(
         () => {
