@@ -41,7 +41,7 @@ export default function Portfolio() {
                 Mon CV
               </a>
               <a
-                href="/docs/Fiche_Synthese_Bouteba_Marwane.pdf"
+                href="/docs/Fiche_de_synthèse_BTS_SIO_Bouteba_Marwane.pdf"
                 className="px-6 py-3 border border-gray-900 hover:bg-gray-900 hover:text-white transition"
               >
                 Fiche de synthèse
