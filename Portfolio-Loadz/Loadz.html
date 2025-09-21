@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Portfolio — Galerie & Marques partenaires</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #f7f9fb;
+      --card: #ffffff;
+      --muted: #6b7280;
+      --accent: #0f172a;
+      --gap: 28px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;}
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      background:var(--bg);
+      color:var(--accent);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:40px;
+    }
+
+    .page{
+      width:100%;
+      max-width:1300px;
+      display:flex;
+      flex-direction:column;
+      gap:var(--gap);
+      align-items:center;
+      justify-content:flex-start;
+    }
+
+    header{
+      width:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    header h1{
+      margin:0;
+      font-weight:600;
+      letter-spacing:-0.4px;
+    }
+
+    /* Galerie du haut: 3 par ligne, images proportionnelles */
+    .gallery{
+      width:100%;
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:20px;
+    }
+    .photo-card{
+      background:var(--card);
+      border-radius:14px;
+      overflow:hidden;
+      box-shadow: 0 8px 30px rgba(15,23,42,0.06);
+      border:1px solid rgba(15,23,42,0.03);
+    }
+    .photo-card img{
+      display:block;
+      width:100%;
+      aspect-ratio:16/9;
+      object-fit:cover;
+    }
+
+    /* Bande défilante des logos */
+    .marquee-wrap{
+      width:100%;
+      padding:18px 12px;
+      border-radius:12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:transparent;
+    }
+    .marquee{
+      width:100%;
+      overflow:hidden;
+      position:relative;
+    }
+    .marquee-track{
+      display:flex;
+      gap:28px;
+      align-items:center;
+      animation: marquee 18s linear infinite;
+    }
+    .marquee-track img{
+      height:80px;
+      width:120px; /* largeur fixe */
+      object-fit:contain;
+      background:rgba(255,255,255,0.9);
+      border-radius:8px;
+      box-shadow:0 8px 18px rgba(15,23,42,0.06);
+      padding:10px;
+      transition: transform 0.3s;
+    }
+    .marquee-track img:hover{
+      transform:scale(1.05);
+    }
+    .marquee-track:hover{animation-play-state:paused}
+
+    @keyframes marquee{
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* Trois photos sous la bande */
+    .three-below{
+      width:100%;
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:20px;
+    }
+    .three-below img{
+      width:100%;
+      aspect-ratio:16/9;
+      object-fit:cover;
+      border-radius:10px;
+      box-shadow:0 6px 18px rgba(15,23,42,0.06);
+    }
+
+    /* Responsive */
+    @media (max-width:1000px){
+      .gallery{grid-template-columns: repeat(2,1fr)}
+      .three-below{grid-template-columns: repeat(2,1fr)}
+    }
+    @media (max-width:600px){
+      .gallery{grid-template-columns: 1fr}
+      .three-below{grid-template-columns: 1fr}
+    }
+
+    .hint{font-size:13px;color:var(--muted); margin-top:6px}
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <h1>Portfolio — Loadz</h1>
+    </header>
+
+    <!-- Galerie du haut -->
+    <section class="gallery">
+      <div class="photo-card"><img src="images/photo1.JPG" alt="photo 1"></div>
+      <div class="photo-card"><img src="images/photo2.JPG" alt="photo 2"></div>
+      <div class="photo-card"><img src="images/photo3.JPG" alt="photo 3"></div>
+      <div class="photo-card"><img src="images/photo4.JPG" alt="photo 4"></div>
+      <div class="photo-card"><img src="images/photo5.JPG" alt="photo 5"></div>
+      <div class="photo-card"><img src="images/photo6.JPG" alt="photo 6"></div>
+    </section>
+
+    <!-- Bande défilante des logos -->
+    <div class="marquee-wrap">
+      <div class="marquee">
+        <div class="marquee-track" id="marqueeTrack">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Disney%2B_logo.svg/512px-Disney%2B_logo.svg.png" alt="Disney+ logo">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/4/46/Canal%2BLogo.png" alt="Canal+ logo">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a3/Basic-Fit_logo.png" alt="Basic-Fit logo">
+          <img src="https://cdn.inspireuplift.com/uploads/images/seller_products/35986/1705988367_MR-tranquiltreats-lg220124h37-2312024123911.jpeg" alt="Red Bull logo">
+          <img src="https://images.moneyvox.fr/i/media/03i/003568i47d.jpg" alt="Fortuneo logo">
+          <img src="https://www.kickfootball.fr/wp-content/uploads/2024/03/Ligue-1-nouveau-logo.png" alt="Ligue 1 logo">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/d/dd/DAZN_BoxedLogo_01_RGB.png" alt="DAZN logo">
+          <img src="https://upload.wikimedia.org/wikipedia/fr/4/46/La_Poste_Mobile_logo.png" alt="La Poste Mobile logo">
+          <img src="https://medias.oas.io/medias/2018/02/02/21/33f2b89451f265ab2c857fda8666b709-o.jpg" alt="UCPA logo">
+          <img src="https://th.bing.com/th/id/R.1f5874a5e719a2c383a8854732e3a947?rik=f43uiuAo3UiKwg&riu=http%3a%2f%2ftous-logos.com%2fwp-content%2fuploads%2f2018%2f01%2fSNCF-logo-768x432.png&ehk=JNksiK%2baVYz676BbeME06Kn%2bWPnDf6PzdFVkO%2bvTUWc%3d&risl=&pid=ImgRaw&r=0" alt="SNCF logo">
+          <img src="https://th.bing.com/th/id/OIP.YPJJUqjDwFpw72wl7bgcTwHaFj?w=234&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="Orange logo">
+
+          <!-- duplicated for seamless loop -->
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Disney%2B_logo.svg/512px-Disney%2B_logo.svg.png" alt="Disney+ logo">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/4/46/Canal%2BLogo.png" alt="Canal+ logo">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a3/Basic-Fit_logo.png" alt="Basic-Fit logo">
+          <img src="https://cdn.inspireuplift.com/uploads/images/seller_products/35986/1705988367_MR-tranquiltreats-lg220124h37-2312024123911.jpeg" alt="Red Bull logo">
+          <img src="https://images.moneyvox.fr/i/media/03i/003568i47d.jpg" alt="Fortuneo logo">
+          <img src="https://www.kickfootball.fr/wp-content/uploads/2024/03/Ligue-1-nouveau-logo.png" alt="Ligue 1 logo">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/d/dd/DAZN_BoxedLogo_01_RGB.png" alt="DAZN logo">
+          <img src="https://upload.wikimedia.org/wikipedia/fr/4/46/La_Poste_Mobile_logo.png" alt="La Poste Mobile logo">
+          <img src="https://medias.oas.io/medias/2018/02/02/21/33f2b89451f265ab2c857fda8666b709-o.jpg" alt="UCPA logo">
+          <img src="https://th.bing.com/th/id/R.1f5874a5e719a2c383a8854732e3a947?rik=f43uiuAo3UiKwg&riu=http%3a%2f%2ftous-logos.com%2fwp-content%2fuploads%2f2018%2f01%2fSNCF-logo-768x432.png&ehk=JNksiK%2baVYz676BbeME06Kn%2bWPnDf6PzdFVkO%2bvTUWc%3d&risl=&pid=ImgRaw&r=0" alt="SNCF logo">
+          <img src="https://th.bing.com/th/id/OIP.YPJJUqjDwFpw72wl7bgcTwHaFj?w=234&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="Orange logo">
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
