@@ -116,7 +116,7 @@ export default function Portfolio() {
   </p>
 
   {/* Image cliquable */}
-  <a href="https://ton-lien-destination.com" target="_blank" rel="noopener noreferrer">
+  <a href="https://portfolio-loadz.vercel.app/" target="_blank" rel="noopener noreferrer">
   <img
     src="/images/Borne-telephone.png"
     alt="Borne + téléphone"
